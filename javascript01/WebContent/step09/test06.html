@@ -7,26 +7,39 @@
 <body>
 	<button id='btn1' type='button'>요청</button>
 	<br>
-
-	<textarea id='message' cols='50' rows='10'></textarea>
-	<script type="text/javascript" src='bitquery.js'></script>
+	<input id='name' type='text'>
+	<br>
+	<input id='age' type='text'>
+	<br>
+	<button id='btn2' type='button'>테스트</button>
+	<br>
+	<!--  
+<script type="text/javascript" src='bitquery.js'></script>
+-->
+	<script type="text/javascript" src='jquery-1.11.3.js'></script>
 	<script type="text/javascript">
-		/*비동기 요청
+		/* 비동기 요청
 		 * - 웹 브라우저에서 요청을 별도의 스레드로 처리하는 것.
-		 *
 		 */
-		document.getElementById('btn1').onclick = function(event) {
-			$.ajax('test05', {
-				method:"post",
-				data: {name:"홍길동", age:20},
-				dataType:"text",
-				success: function(result){
-					document.getElementById('message').value=result;
+		$('#btn2').click(function() {
+			alert($('#btn2').val());
+		});
+
+		$('#btn1').click(function(event) {
+			$.ajax('test06', {
+				method : 'POST',
+				data : {
+					name : '홍길동남의꺼',
+					age : 20
+				},
+				dataType : 'json',
+				success : function(jsonObj) {
+					$('#name').val(jsonObj.name);
+					$('#age').val(jsonObj.age);
 				}
 			});
-					document.getElementById('message').value = xhr.responseText;
-		};
-
+		});
 	</script>
 </body>
 </html>
+

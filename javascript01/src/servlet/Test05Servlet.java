@@ -23,7 +23,7 @@ public class Test05Servlet extends HttpServlet{
 			throws ServletException, IOException {
 		System.out.println("post 요청!");
 		// post 요청으로 들어오는 한글 파라미터는 다음과 같이 
-		// getParameter를 호출하기전에 문자셋을 지정해주어야된다.
+		//getParameter를 호출하기전에 문자셋을 지정해주어야된k다
 		req.setCharacterEncoding("utf-8");
 		
 		String name= req.getParameter("name");

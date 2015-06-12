@@ -78,59 +78,64 @@ function bit(selector) {
 		return this;
 	}
 
+	list.val = function(value) {
+		if (arguments.length == 0) {
+			if (list.length > 0) {
+				return list[0].value;
+			} else {
+				return undefined;
+			}
+		} else {
+			for (var i = 0; i < list.length; i++) {
+				list[i].value = value;
+			}
+			return this;
+		}
+	}
+
 	return list;
 }
 
-bit.ajax = function(url, settings){
-	var xhr;
-	
-	if (window.XMLHttpRequest)
-	{// code for IE7+, Firefox, Chrome, Opera, Safari
-		xhr=new XMLHttpRequest();
-	}
-	else
-	{// code for IE6, IE5
-		xhr=new ActiveXObject("Microsoft.XMLHTTP");
-	}	
 
+bit.ajax = function(url, settings) {
+	var xhr;
+
+	if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+		xhr = new XMLHttpRequest();
+
+	} else {// code for IE6, IE5
+		xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	}
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4) {
-			if(settings.success){
-				
-				if(settings.dataType =="json"){
-					settings.succes(JSON.parse(responseText));	
+			if (settings.success) {
+				if (settings.dataType == "json") {
+					settings.success(JSON.parse(xhr.responseText));
 				} else {
-					settings.succes(responseText);
+					settings.success(xhr.responseText);
 				}
-				
 			}
 		}
 	};
+	xhr.open(settings.method, url, true); 
 
-	xhr.open(settings.method, url, true);//비동기 요청 지정
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-	//멀티바이트 문자 데이터를 보낼 떄는 반드시 URLEncoding 하여 보낸다
-	
-	if(settings.method=="GET"){//get
+	if (settings.method == "GET") {
 		xhr.send();
-	} else { //post
-		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	}
-	
-	var queryString = "";
-	for( var propName in data){
-		if(queryString.length>0){
-			queryString +="&";
+
+	} else { //POST 라면,
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+		var queryString = "";
+		for (var propName in settings.data) {
+			if (queryString.length > 0) {
+				queryString += "&";
+			}
+			queryString += propName + "=" + encodeURIComponent(settings.data[propName]) 
 		}
-		queryString += propName + "=" + encodeURI(settings.data[propName])
+		console.log("서버에 보내는 문자열:" + queryString);
+		xhr.send(queryString);
 	}
-	console.log("서버에 보내는 문자열:"+propName);
-	xhr.send(queryString);
 };
 
-
-
 var $ = bit;
-
