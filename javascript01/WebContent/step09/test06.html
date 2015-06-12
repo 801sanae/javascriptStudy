@@ -16,20 +16,15 @@
 		 *
 		 */
 		document.getElementById('btn1').onclick = function(event) {
-			//4.post  요청 보내기 (비동기요청처리)
-			var xhr = new XMLHttpRequest();
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState == 4) {
-					document.getElementById('message').value = xhr.responseText;
+			$.ajax('test05', {
+				method:"post",
+				data: {name:"홍길동", age:20},
+				dataType:"text",
+				success: function(result){
+					document.getElementById('message').value=result;
 				}
-			};
-			
-			xhr.open('post', 'test04', true);//비동기 요청 지정
-			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			
-			//멀티바이트 문자 데이터를 보낼 떄는 반드시 URLEncoding 하여 보낸다
-			var data = "name= " + 	encodeURIComponet("홍길동") +"&age=20";
-			xhr.send(data);
+			});
+					document.getElementById('message').value = xhr.responseText;
 		};
 
 	</script>
