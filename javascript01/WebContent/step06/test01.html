@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button id="btn1" type="button">버튼1</button>
+<button id="btn2" type="button">버튼2</button>
+<button id="btn3" type="button">버튼3</button>
+<button id="btn4" type="button" 
+   onclick="/*이벤트가 발생되었을 때 실행될 자바스크립트 코드*/alert('okok'); myclick(event);">버튼4</button>
+<button id="btn5" type="button">버튼5</button>
+
+<script type="text/javascript">
+/* 이벤트 리스너 등록 
+ * - 이벤트 리스너?
+		 이벤트가 발생되었을 때 호출되는 함수.
+ */
+
+//1. onXXX 프로퍼티에 함수 할당
+var element = document.getElementById('btn1');
+
+// click 이벤트가 발생할 때마다 onclick 이름으로 등록된 함수가 호출된다.
+element.onclick = function(event) {
+	alert("오호라..눌렀어!");
+};
+
+// 위의 방법은 리스너를 한 개 만 등록할 수 있다.
+// 그러나 다음의 방법을 사용하면 리스너를 여러 개 등록할 수 있다.
+//2. addEventListener()를 사용하여 이벤트 리스너 등록하기
+var element2 = document.getElementById('btn2');
+element2.addEventListener('click', function(event){
+	console.log('11111');
+});
+element2.addEventListener('click', function(event){
+	console.log('22222');
+});
+element2.addEventListener('click', function(event){
+	console.log('33333');
+});
+
+//3. onXXX 와 addEventListener()를 섞어서 등록할 경우 호출 순서는?
+// - onXXX나 addEventListener()를 구분하지 않고 등록한 순서대로 호출된다.
+var element3 = document.getElementById('btn3');
+element3.addEventListener('click', function(event){
+	console.log('1111-----');
+});
+element3.onclick = function(event) {
+	console.log('2222-----');
+};
+element3.addEventListener('click', function(event){
+  console.log('3333-----');
+});
+
+//4. HTML 태그의 onclick 속성을 사용하는 방법
+function myclick(event) {
+	console.log('오호라.. 이 방법도 있군. 하지만 유지보수에 좋지 않다.');
+}
+
+//5. Microsoft의 IE 8 이하 버전에서는 onXXX는 사용할 수 있지만,
+//   이벤트 리스너 등록 표준 함수인 addEventListener()는 지원하지 않는다.
+//   대신 attachEvent()라는 함수를 지원한다.
+//   따라서 IE 8을 고려한다면, 다음과 같이 코딩해야 한다.
+var element5 = document.getElementById('btn5');
+
+// 실무에서는 IE 8 이하 버전도 지원해야 한다. ==> Cross Browser 지원
+if (element5.addEventListener) {
+	element5.addEventListener('click', function(event){
+		console.log('이벤트 처리하자....');
+	});
+} else { // <= IE 8
+	element5.attachEvent('onclick', function(event) {
+		console.log('이벤트 처리하자....');
+	});
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button id="btn1" type="button">버튼1</button>
+<div id='d1'></div>
+
+<script type="text/javascript" src="bitquery.js"></script>
+<script type="text/javascript">
+/* bitquery.js 사용! 
+ */
+
+//document.getElementById('btn1') 
+//document.querySelectorAll('#btn1');
+$('#btn1').click(function(even) {
+	alert('okok^^');
+});
+
+var list = $('<p>');
+list.html('오호라...이것이 <b>내용</b>이구나.');
+
+var parents = $('#d1');
+parents.append(list);
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

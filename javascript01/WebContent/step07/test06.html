@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  padding: 20px;
+  border: 1px solid blue;
+  margin: 10px;
+}
+</style>
+</head>
+<body>
+  <div id="d1"></div>
+  <div id="d2"></div>
+  
+<script type="text/javascript">
+/* 엘리먼트 만들기
+ * 
+ */
+//1. 엘리먼트 만들기 
+var e = document.createElement('p'); // 리턴 값: HTMLParagraphElement 객체
+var content = document.createTextNode('오호라.. 이것이 내용이야.');
+
+e.appendChild(content);
+
+//DOM 트리에 추가해야 화면에 보여진다.
+document.getElementById('d1').appendChild(e);
+
+//2. 엘리먼트에 콘텐츠 설정하기 - innerHTML 속성 사용
+// - HTML을 넣을 수 있다.
+// - Element 생성자에서 추가하는 속성이다.
+var e = document.createElement('p'); 
+e.innerHTML = "오호라... <b>내용</b>이군..";
+document.getElementById('d1').appendChild(e);
+
+//3. 엘리먼트에 콘텐츠 설정하기 - textContent 속성
+// - Element 생성자의 상위 생성자는 Node이다.
+// - textContent는 Node 생성자에서 추가하는 속성이다.
+
+// - textContent는 일반 텍스트를 설정할 때 사용한다.
+// - HTML 태그는 일반 텍스트로 처리된다.
+var e = document.createElement('p'); 
+e.textContent = "오호라... <b>내용</b>이군..";
+document.getElementById('d1').appendChild(e);
+
+//
+document.getElementById('d2').innerHTML = '<p>오호라...<b>내용</b>이군요</p>';
+
+</script>    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

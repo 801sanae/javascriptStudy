@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+"use strict";
+
+/* 객체의 프로퍼티를 상세하게 제어하기  
+ */
+ 
+function Calc() {
+	// this 객체에 result라는 이름의 프로퍼티를 추가한다.
+	// 추가하는 프로퍼티의 정보를 상세하게 설정한다.
+	Object.defineProperty(this, "result", {
+		writable: true, // 기본 값, false
+		value: 0, // 기본 값, undefined
+		//enumerable: true // 기본 값, false. for..in 에 노출여부?
+	});
+}
+
+Calc.prototype.plus = function(value) {
+	this.result += value;
+};
+Calc.prototype.minus = function(value) {
+  this.result -= value;
+};
+Calc.prototype.multiple = function(value) {
+  this.result *= value;
+};
+Calc.prototype.divide = function(value) {
+  this.result /= value;
+};
+  
+var calc1 = new Calc();
+calc1.plus(30);
+calc1.minus(20);
+console.log(calc1.result);
+
+for (var propName in calc1) {
+	console.log(propName);
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

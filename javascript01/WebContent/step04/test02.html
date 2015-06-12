@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+"use strict";
+
+/* 객체에 프로퍼티 추가하기
+ */
+
+// 1) 일반적인 방법
+// - 프로퍼티 이름에 공백이나 특수 문자를 넣을 수 없다.
+var obj1 = new Object();
+obj1.name = "홍길동";
+obj1.age = 20;
+//obj1.haha ^^ = "안됩니다.";  // 프로퍼티 이름 오류!
+
+// 2) 문자열로 프로퍼티 이름을 지정하기
+obj1["haha ^^"] = "이렇게 하면 됩니다.";
+obj1['tel'] = "111-1111";
+
+// 객체에 추가한 프로퍼티를 꺼내기
+for (var propName in obj1) {
+	console.log(propName, obj1[propName]);
+}
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

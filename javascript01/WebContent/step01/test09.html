@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1>호이스팅과 script 태그</h1>
+<script>
+/* - 호이스팅의 범위는 현재 스크립트 태그에 한정한다.
+ * - script 태그는 항상 순서대로 실행한다.
+ */
+"use strict";
+
+f1();  
+//f2(); //뒤에 선언된 스트립트 태그 안의 함수를 사용할 수 없다. 
+      //이유? 스크립트 태그를 선언된 순서대로 실행한다.
+
+function f1() {
+  console.log("나 함수이다.");
+};
+</script>
+
+<script>
+
+f1(); // 앞의 스크립트 태그에서 선언된 변수나 함수는 window 객체에 소속되어 있다. 존재한다.! 
+      // 뒤의 스트립트 태그에서 사용할 수 있다.
+f2(); // 호이스팅 기법에 의해 f2() 선언이 이 문장 앞으로 온다.
+
+function f2() {
+	console.log("나도 함수이다.");
+};
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<script>
+//실습 목표: forEach() 함수를 사용하여 배열 값 꺼내기
+var scores = [100,90,80,70];
+
+//1) 일반적인 방법
+/*
+for (var i = 0; i < scores.length; i++) {
+	console.log(scores[i]);
+}
+*/
+
+//2) 반복문을 쓰지 않고 값을 꺼내기. => 반복문을 함수로 정의하여 감추기!
+/*
+scores.myEach = function(cb) {
+  for (var i in this) {
+    cb(this[i]);
+  }
+};
+
+// 배열 값을 꺼내고 싶으면, 반복문 대신 함수를 호출한다.
+scores.myEach(function(element){
+  console.log(element);
+});
+*/
+
+
+scores.forEach(function(element) {
+  console.log(element);
+});
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+"use strict";
+
+/* 자바스크립트의 클로저를 이용하여 캡슐화 구현하기
+ * - 같은 함수에서 만든 클로저들은 바깥 함수의 로컬 변수를 공유한다.
+ */
+ 
+function Calc() {
+	var result = 0;
+	
+	this.getResult = function() {
+		return result;
+	};
+	this.plus = function(value) {
+	  result += value; // result는 이제 로컬 변수이기 때문에 this를 붙이면 안된다.
+	};
+  this.minus = function(value) {
+    result -= value;
+  };
+  this.multiple = function(value) {
+    result *= value;
+  };
+  this.divide = function(value) {
+    result /= value;
+  };
+}
+
+var calc1 = new Calc();
+calc1.plus(30);
+calc1.minus(20);
+calc1.result = 1; // 객체에 result라는 변수를 추가한다.
+console.log(calc1.result); // 객체에 추가된 result 변수 값을 출력한다.
+console.log(calc1.getResult()); // 클로저들이 공유하는 result 변수 값을 출력한다.
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

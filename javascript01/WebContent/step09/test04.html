@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button id='btn1' type='button'>요청</button>
+	<br>
+
+	<textarea id='message' cols='50' rows='10'></textarea>
+
+	<script type="text/javascript">
+		/*비동기 요청
+		 * - 웹 브라우저에서 요청을 별도의 스레드로 처리하는 것.
+		 *
+		 */
+		document.getElementById('btn1').onclick = function(event) {
+			//4.post  요청 보내기 (비동기요청처리)
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					document.getElementById('message').value = xhr.responseText;
+				}
+			};
+			
+			xhr.open('post', 'test04', true);//비동기 요청 지정
+			
+			//요청 헤더는 open() 호출 후에 수행되어야 된다.
+			//Post 요청은 요청 헤더에 conTent-type 헤더를 반드시 추가해야 한다.
+			//-주의 AJAX는 mulitpart 형식으로 전송할 수 없다. 파일 업로드  지원 불가.
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			
+			//post 요청에서 데이터를 보낼때 send()파라미터로 전달합니다.
+			xhr.send("name=hong&age=20");
+		};
+
+	</script>
+</body>
+</html>

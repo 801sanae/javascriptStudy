@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1>변수 범위</h1>
+<script>
+/* 2) 로컬 변수
+ * - 함수 안에 선언하는 변수
+ * - 자바와 달리 블록({})에 종속되지 않는다. - 블록 범위는 없다. 
+ * - 즉 블록에 선언된 변수도 로컬 변수로 취급한다.
+ */
+
+"use strict";
+
+var a = 20; // 글로벌 변수
+var b = "aaa"; // 글로벌 변수
+
+function f() {
+	  var a = 30; // 로컬 변수
+	  console.log(a); // 로컬 변수
+	  console.log(b); // 글로벌 변수
+	  //console.log(c); // 용서받지 못 할 변수 
+	  console.log(window.a); // 같은 이름의 글로벌 변수를 가리키고 싶다! 정확하게 window를 사용하라!
+	  window.a = 100;
+}
+
+console.log(a);
+f();
+console.log(a);
+</script>
+</body>
+</html>
+
+
+
+

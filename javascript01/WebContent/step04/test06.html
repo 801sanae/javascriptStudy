@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+"use strict";
+
+/* prototype 프로퍼티를 이용하여 인스턴스가 공유하는 함수나 변수를 저장하기
+ * - 반복적인 함수 생성을 줄인다.  
+ */
+ 
+function Calc() {
+	this.result = 0;
+}
+
+// 기초 지식: 자바스크립트는 함수도 객체로 다룬다.
+// => 즉 함수도 객체처럼 사용할 수 있다.
+// => 함수도 객체이기 때문에 변수나 함수를 추가할 수 있다.
+// 인스턴스들이 공유하는 함수를 prototype 프로퍼티에 보관한다.
+// prototype 프로퍼티는 모든 객체에 기본으로 포함되어 있다.
+Calc.prototype.plus = function(value) {
+  this.result += value;
+};
+Calc.prototype.minus = function(value) {
+  this.result -= value;
+};
+Calc.prototype.multiple = function(value) {
+  this.result *= value;
+};
+Calc.prototype.divide = function(value) {
+  this.result /= value;
+};
+  
+var calc1 = new Calc();
+var calc2 = new Calc();
+
+// 현재 객체에서 함수를 못 찾으면, 그 객체를 초기화시킨 생성자 함수의 prototype에서 찾는다.
+calc1.plus(30);
+calc1.minus(20);
+
+calc2.plus(20);
+calc2.multiple(3);
+
+console.log(calc1.result, calc2.result);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

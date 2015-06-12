@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+"use strict";
+
+/* 함수 정의 
+ */
+
+f(); // 변수나 함수 선언은 호이스팅 된다.
+//f2(); // 익명 함수 선언은 호이스팅 되지 않기 때문에 오류가 발생!
+
+//1) 일반적인 방법
+function f() {
+	console.log("okok");
+}
+
+//2) 익명 함수 선언과 할당 
+var f2 = function(){
+	console.log("nono");
+};
+
+f2();
+
+//함수 이름은 변수로서 함수 주소를 갖고 있다.
+var f3 = f;
+f3();
+
+//바깥에 선언하는 함수는 글로벌 함수이다.
+window.f();
+ 
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

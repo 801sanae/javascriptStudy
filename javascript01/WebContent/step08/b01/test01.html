@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button id="btn1" type="button">버튼1</button>
+
+<script type="text/javascript" src="bitquery.js"></script>
+<script type="text/javascript">
+/* bitquery.js 사용! 
+ */
+
+//document.getElementById('btn1') 
+//document.querySelectorAll('#btn1');
+var list = $('#btn1'); 
+list[0].onclick = function(even) {
+	alert('okok');
+};
+
+
+/*
+if (element5.addEventListener) {
+	element5.addEventListener('click', function(event){
+		console.log('이벤트 처리하자....');
+	});
+} else { // <= IE 8
+	element5.attachEvent('onclick', function(event) {
+		console.log('이벤트 처리하자....');
+	});
+}
+*/
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1>변수 및 함수 호이스팅(hoisting)</h1>
+<script>
+/* 
+ * - 변수나 함수의 선언 위치와 상관없이 무조건 첫 부분으로 끌어 올려진다.
+ * - 곧 변수를 뒤에 선언하고 그 전에 사용하더라도 오류가 아니다.
+ */
+
+"use strict";
+
+function f() {
+	
+	//var a; //<---- hoisting: 뒤에 있는 변수 선언을 위로 끌어 올리는 것!
+	
+	console.log(a);
+
+	var a = 20;
+	
+	console.log(a);
+}
+
+f();
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

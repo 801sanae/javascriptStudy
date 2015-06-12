@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1>자바스크립트의 타입</h1>
+<script>
+/* 자바스크립트에서 다루는 타입?
+ * - number, string, boolean, object, function, undefined
+ */
+
+"use strict";
+
+// 숫자는 정수와 실수를 구분하지 않는다.
+var a = 20;
+var b = 20.234;
+console.log(a, b);
+console.log(typeof a, typeof b); // typeof 연산자는 변수의 타입을 문자열로 리턴한다.
+
+// 문자와 문자열을 구분하지 않는다. => 작은 따옴표와 큰 따옴표를 구분하지 않는다.
+var c = "a"
+var d = 'a'
+var e = "aaaa"
+var f = 'aaaa'
+console.log(c, d, e, f);
+console.log(typeof c, typeof d, typeof e, typeof f);
+
+// 논리 값은 true, false로 표현한다.
+var b1 = true;
+var b2 = false;
+console.log(b1, b2);
+console.log(typeof b1, typeof b2);
+
+// 객체
+var obj1 = new Object();
+console.log(obj1);
+console.log(typeof obj1);
+
+// 함수 
+var f1 = function f() {};
+console.log(f1);
+console.log(typeof f1);
+
+// null : 변수는 있지만 객체 주소를 0으로 초기화했다.
+var v1 = null;
+console.log(v1);
+console.log(typeof v1);
+
+// undefined : 변수는 있지만 값을 할당한 적이 없어 값이 뭔지 모르겠다.
+var v2;
+console.log(v2);
+console.log(typeof v2);
+
+// 변수가 존재하지 않는다 : 예외 발생!
+console.log(v3);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

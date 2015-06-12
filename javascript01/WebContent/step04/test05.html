@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+"use strict";
+
+/* 객체를 생성해주는 함수: 생성자 함수
+ * - 자바처럼 별도의 문법이 없다. 그냥 일반 함수이다.
+ * - 다만, 객체를 초기화시키는 역할을 하는 함수를 생성자 함수라고 부른다.
+ */
+ 
+function Calc() {
+	this.result = 0;
+	this.plus = function(value) {
+	  this.result += value;
+	};
+  this.minus = function(value) {
+    this.result -= value;
+  };
+  this.multiple = function(value) {
+    this.result *= value;
+  };
+  this.divide = function(value) {
+    this.result /= value;
+  };
+}
+
+var calc1 = new Calc();
+var calc2 = new Calc();
+
+calc1.plus(30);
+calc1.minus(20);
+
+calc2.plus(20);
+calc2.multiple(3);
+
+console.log(calc1.result, calc2.result);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

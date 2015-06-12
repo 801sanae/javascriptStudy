@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+  padding: 20px;
+  border: 1px solid blue;
+  margin: 10px;
+}
+</style>
+<script type="text/javascript">
+/* load 이벤트
+ * - DOM 트리가 완성된 후 발생되는 이벤트.
+ * - DOM(Document Object Model)
+ */
+
+// DOM 트리에 d1 아이디 값을 갖는 태그가 추가되지 않은 상태에서 
+// 태그를 찾으면 null을 리턴할 것이다.
+var e = document.getElementById('d1');
+if (e == null) {
+	alert('존재하지 않는다.')
+} else {
+	alert('존재한다.');
+}
+
+// DOM 트리가 완성되고 화면에 내용이 출력된 후 load 이벤트가 발생한다.
+window.onload = function(event) {
+	alert('잠깐!');
+	
+	// load 이벤트가 발생했을 때는 이미 DOM 트리가 완성되었기 때문에
+	// 다음과 같이 div 태그를 찾을 수 있다.
+	var e = document.getElementById('d1');
+	if (e == null) {
+	  alert('load -> 존재하지 않는다.')
+	} else {
+	  alert('load -> 존재한다.');
+	}	
+};
+
+// 권고!
+// - 자바스크립트를 body 위에 두면 화면을 출력하기 전에 
+//   자바스크립트르 먼저 처리해야 하기 때문에, 화면 출력이 늦어진다.
+// - 가능한 body 태그 끝에 스크립트를 두어라!
+ 
+</script>
+</head>
+<body>
+  <div id="d1">d1
+    <div id="d11">d11
+      <button id="btn1" type="button">버튼1</button>
+    </div>
+    <div id="d12">d12
+      <button id="btn2" type="button">버튼2</button>
+    </div>
+  </div>
+  <div id="d2">d2
+    <div id="d21">d21
+      <button id="btn3" type="button">버튼3</button>
+    </div>
+    <div id="d22">d22
+      <button id="btn4" type="button">버튼4</button>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

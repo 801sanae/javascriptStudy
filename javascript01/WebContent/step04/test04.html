@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+"use strict";
+
+/* 같은 객체를 여러 개 정의하기
+ */
+ 
+// 계산기 만들기
+var calc1 = {
+		result: 0,
+		plus: function(value) {
+			this.result += value;
+		},
+		minus: function(value) {
+			this.result -= value;
+		},
+		multiple: function(value) {
+			this.result *= value;
+		},
+		divide: function(value) {
+			this.result /= value;
+		}
+};
+
+var calc2 = {
+    result: 0,
+    plus: function(value) {
+      this.result += value;
+    },
+    minus: function(value) {
+      this.result -= value;
+    },
+    multiple: function(value) {
+      this.result *= value;
+    },
+    divide: function(value) {
+      this.result /= value;
+    }
+};
+
+// 10 - 5 / 2 * 7
+calc1.plus(10);
+calc1.minus(5);
+calc1.divide(2);
+calc1.multiple(7);
+console.log(calc1.result);
+
+// 20 * 2
+calc2.plus(20);
+calc2.multiple(2);
+console.log(calc2.result);
+
+// 단축키를 사용하여 직접 객체를 생성하면 매우 불편하다.
+// => 해결책: Factory Method 패턴을 적용하라!
+function createCalc() {
+	return {
+	    result: 0,
+	    plus: function(value) {
+	      this.result += value;
+	    },
+	    minus: function(value) {
+	      this.result -= value;
+	    },
+	    multiple: function(value) {
+	      this.result *= value;
+	    },
+	    divide: function(value) {
+	      this.result /= value;
+	    }
+	};
+}
+
+var calc3 = createCalc();
+var calc4 = createCalc();
+
+calc3.plus(30);
+calc3.minus(20);
+console.log(calc3.result);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

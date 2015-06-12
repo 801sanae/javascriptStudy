@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+"use strict";
+
+/* 함수 클로저
+ * - 함수 안에 정의된 함수
+ */
+
+function outer(op) {
+	switch(op) {
+	case "+":
+		return function(a, b) { return a + b; }; // closure 이다.
+	case "-":
+		return function(a, b) { return a - b; }; // closure 이다.
+	}	
+}
+
+var operator = outer("+"); //야, 더하기 함수 좀 줄래?
+console.log(operator(10, 20));
+
+operator = outer("-");
+console.log(operator(10, 20));
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

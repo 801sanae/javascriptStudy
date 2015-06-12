@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button id='btn1' type='button'>요청</button>
+	<br>
+	<textarea id='message' cols='50' rows='10'></textarea>
+
+	<script type="text/javascript">
+		/* 비동기 요청
+		 * - 웹 브라우저에서 요청을 별도의 스레드로 처리하는 것.
+		 */
+		document.getElementById('btn1').onclick = function(event) {
+			// 5. POST 요청 보내기 - 한글 데이터 보내기
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					document.getElementById('message').value = xhr.responseText;
+				}
+			};
+			xhr.open('POST', 'test05', true);
+			xhr.setRequestHeader("Content-type",
+					"application/x-www-form-urlencoded");
+
+			// 멀티바이트 문자 데이터를 보낼 때는 반드시 URLEncoding 하여 보낸다.
+			var data = "name=" + encodeURIComponent("홍길동") + "&age=20";
+			xhr.send(data);
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1>변수 범위</h1>
+<script>
+/* 1) 글로벌 변수
+ * - 함수 밖에 선언하는 변수
+ * - 웹 브라우저 빌트인 객체인 "window"라는 객체에 소속된다.
+ */
+
+"use strict";
+
+var a = 20; //글로벌 변수
+console.log(a);
+console.log(window.a);
+
+window.a = 30;
+console.log(a);
+console.log(window.a);
+
+</script>
+</body>
+</html>
+
+
+
+

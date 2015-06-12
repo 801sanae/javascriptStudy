@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h1>변수 및 함수 호이스팅(hoisting)</h1>
+<script>
+/* 
+ * - 함수 호이스팅
+ */
+
+"use strict";
+
+f(); // 호이스팅 때문에 뒤에 선언된 함수를 호출할 수 있다.
+
+//이렇게 함수를 뒤에 선언하더라도 호이스팅 기법에 의해 위로 끌어올려진다.
+function f() {
+  console.log("나 함수이다.");
+}
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

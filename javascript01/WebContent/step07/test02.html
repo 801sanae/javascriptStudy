@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+  border: 1px solid blue;
+  margin: 10px;
+  padding: 10px;
+}
+
+/* 모든 엘리먼트
+* {
+  border: 1px dotted red;
+  margin: 5px;
+  padding: 10px;
+}
+*/
+
+/* 특정 엘리먼트를 선택하기 */
+/*
+div {
+  border: 3px solid blue;
+  margin: 5px;
+  padding: 10px;
+}
+*/
+
+/* 자손 엘리먼트 선택하기 */
+/*
+body button {
+  border: 5px solid green;
+}
+*/
+/*
+div button {
+  border: 5px solid orange;
+}
+*/
+
+/* 직계 자식 선택하기 */
+/*
+body > button {
+  border: 5px solid navy;
+}
+*/
+
+/* 첫 번째 자식 선택하기 :first-child pseudo 셀렉터 사용
+ - pseudo 셀렉터 => 특정 상태에 놓인 엘리먼트를 가리킬 때 사용한다.
+*/
+/*
+div:FIRST-CHILD {
+  border: 1px dashed red;
+}
+*/
+
+/* 링크를 클릭하기 전*/
+/*
+a:link { 
+  color: red;
+}
+*/
+
+/* 링크를 클릭한 후*/
+/*
+a:visited {
+  color: gray;
+}
+*/
+
+/* 마우스 커서가 엘리먼트 위에 있을 때*/
+/*
+a:hover, button:hover { 
+  background-color: blue;
+  color: white;
+}
+*/
+
+/*
+div:first-child:hover { 
+  background-color: blue;
+  color: white;
+}
+*/
+
+/* 특정 태그 다음에 즉시 오는 태그를 찾기 */
+/*
+div + button {
+  border: 2px solid red;
+}
+*/
+
+/* 특정 태그 이후에 오는 태그 찾기 */
+div ~ button {
+  border: 2px solid red;
+}
+
+/* 특정 이름의 속성을 가진 엘리먼트 찾기 */
+/*
+div[data-no] {
+  background-color: red;
+}
+*/
+
+/* 속성에 대해 특정 값을 갖는 엘리먼트 찾기*/
+/*
+div[data-no='30'] {
+  background-color: blue;
+}
+*/
+
+/* 엘리먼트 이름과 클래스 이름으로 태그 찾기 */
+/*
+div.up {
+  border: 3px solid red;
+}
+*/
+
+/* 엘리먼트 이름과 아이디를 가지고 태그 찾기 */
+/*
+div#d11 {
+  border: 3px solid red;
+}
+*/
+
+/* 여러 개의 엘리먼트를 선택할 때 */
+/*
+#d11, #d22, #btn5, p, div[data-no='20'] {
+  border: 3px solid red;
+}
+*/
+
+/*
+.up {
+  border: 3px solid red;
+}
+
+.g1 {
+  background-color: yellow;
+}
+*/
+
+/* pseudo 셀렉터 : 특정 상태에 놓인 엘리먼트 */
+/*
+input:active {
+  border: 5px dotted green;
+}
+
+input:focus {
+  background-color: yellow;
+}
+*/
+
+</style>
+</head>
+<body>
+  <div id="d1">d1
+    <div id="d11" class="up g1">d11
+      <button id="btn1" type="button">버튼1</button>
+    </div>
+    <div id="d12" class="down" data-no="20">d12
+      <button id="btn2" type="button">버튼2</button>
+    </div>
+    <button id="btn6" type="button" class="g1">버튼6</button>
+  </div>
+  
+  <p>오호라... 문단(paragraph)태그</p>
+  
+  <button id="btn5" type="button">버튼5</button>
+  
+  <div id="d2">d2
+    <div id="d21" class="up">d21
+      <button id="btn3" type="button">버튼3</button>
+    </div>
+    <div id="d22" class="down" data-no="30">d22
+      <button id="btn4" type="button">버튼4</button>
+    </div>
+    <button id="btn7" type="button">버튼7</button>
+  </div>
+  
+  <div id="d3">
+    <a href="http://www.daum.net">다음</a><br>
+    <a href="http://www.naver.com">네이버</a><br>
+    <a href="http://www.google.com">구글</a><br>
+  </div>
+  
+  <div>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
